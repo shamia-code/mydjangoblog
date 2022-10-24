@@ -9,16 +9,20 @@
         <header>
             <h1><a href="/"> Django Girls Blog </a></h1>
         </header>
-        <article>
-            <time> Published: 21.10.2022, 17:34</time>
-            <h2><a href=" ">My First post </a></h2>
-            <p> This  is my first time to develop a web application. I have used the Django framework but it'd awesome!</p>
+        {% for post in posts %}
+            <article>
+            <time> Published:{{post.published_date}}</time>
+            <h2><a href=" ">{{post.title}}</a></h2>
+            <p>{{post.text|linebreaksbr}}</p>
         </article>
-
+        {%endfor %}
+        <!--
         <article>
             <time> Published: 21.10.2022, 17:34</time>
             <h2><a href=" "> My second post </a></h2>
             <p>This is the second post. and I can gladly say the Django framework is beautiful!</p>
         </article>
+        -->
+
 </body>
 </html>
