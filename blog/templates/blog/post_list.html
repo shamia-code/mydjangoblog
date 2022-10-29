@@ -1,28 +1,13 @@
-<!DOCTYPE html>
+{% extends 'blog/base.html' %}
 
-<html>
-    <head>
-        <title> Shamie's version of Django Girls Blog</title>
-    </head>
-    <body>
+{% for post in posts %}
+    <article class="post">
+        <time class="date">
+            {{ post.published_date }}
+        </time>
+        <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+        <p>{{ post.text|linebreaksbr }}</p>
+    </article>
+{% endfor %}
 
-        <header>
-            <h1><a href="/"> Django Girls Blog </a></h1>
-        </header>
-        {% for post in posts %}
-            <article>
-            <time> Published:{{post.published_date}}</time>
-            <h2><a href=" ">{{post.title}}</a></h2>
-            <p>{{post.text|linebreaksbr}}</p>
-        </article>
-        {%endfor %}
-        <!--
-        <article>
-            <time> Published: 21.10.2022, 17:34</time>
-            <h2><a href=" "> My second post </a></h2>
-            <p>This is the second post. and I can gladly say the Django framework is beautiful!</p>
-        </article>
-        -->
-
-</body>
-</html>
+                                   
